@@ -41,7 +41,15 @@ footer{margin-top:50px;padding:35px 0 55px;border-top:1px solid #28435f;color:va
 <p>코드 작성·디버깅까지 자동화하고 싶다면 연결된 PC에 Codex CLI를 추가합니다. OpenAI 공식 설치 명령은 다음과 같습니다.</p><pre>npm i -g @openai/codex</pre>
 <p>설치 후 Codex에 로그인하면 ChatGPT → RDC → Codex CLI 흐름으로 코드 작업을 넘길 수 있습니다. 단순 파일 확인이나 테스트는 Codex를 호출하지 않고 RDC만 사용하면 됩니다.</p>
 <h3>Git과 Google Drive도 선택 사항입니다</h3>
-<p>Git은 코드 변경 이력을 남길 때, Google Drive는 큰 데이터·로그·실행 결과를 여러 기기에서 공유할 때 추가하면 됩니다. 단순 원격 개발만 목적이라면 처음부터 둘 다 구성할 필요는 없습니다.</p>
+<p><strong>모든 내용을 Git에만 저장하는 구성도 가능합니다.</strong> 코드, 문서, 설정, 작은 결과 파일 위주라면 Git만으로도 충분합니다. 다만 대용량 데이터, 자주 갱신되는 로그, 바이너리 결과물은 repository가 빠르게 커질 수 있으므로 이런 파일만 Google Drive 같은 별도 저장소로 분리하면 관리가 편해집니다.</p>
+<h3>Google Drive를 같이 쓰고 싶다면</h3>
+<p>Windows 또는 macOS에서는 <a href="https://www.google.com/drive/download/" rel="noopener noreferrer">Google Drive for desktop</a>을 설치한 뒤 사용할 Google 계정으로 로그인합니다.</p>
+<div class="grid">
+<div class="card accent-green"><h3>스트리밍</h3><p>파일은 주로 클라우드에 두고 필요할 때 내려받습니다. 로컬 디스크 사용량을 줄이고 싶을 때 적합합니다.</p></div>
+<div class="card accent-cyan"><h3>미러링</h3><p>Drive 파일을 로컬에도 항상 보관합니다. 자동화 스크립트가 파일을 자주 읽고 쓰거나 오프라인에서도 항상 파일이 있어야 한다면 더 단순한 선택입니다.</p></div>
+</div>
+<p>설정은 Drive for desktop → 설정 → 환경설정 → Drive 폴더 → 내 드라이브 동기화 옵션에서 <strong>파일 스트리밍</strong> 또는 <strong>파일 미러링</strong>을 선택하면 됩니다. Linux에는 공식 Drive for desktop 앱이 없으므로 외부 Linux 서버에서는 Git 중심으로 구성하거나 별도의 동기화 방법을 사용해야 합니다.</p>
+<p class="muted">예시 역할 분리: Git = 코드·문서·설정·작은 결과 / Drive = 큰 데이터·로그·실행 결과. 하지만 이 구분은 필수가 아니며 작업 규모가 작다면 Git 하나로만 운영해도 됩니다.</p>
 <div class="notice"><strong>보안</strong> — RDC는 연결된 기기에서 현재 사용자 권한으로 파일과 터미널을 다룹니다. 처음에는 읽기 전용 작업으로 확인하고, 신뢰하는 기기만 연결하며 MFA를 사용하는 편이 좋습니다. 외부 서버/VM은 최소 권한 계정으로 구성하는 것을 권장합니다.</div>
 </section>
 <section>
