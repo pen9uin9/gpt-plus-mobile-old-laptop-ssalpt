@@ -29,6 +29,22 @@ footer{margin-top:50px;padding:35px 0 55px;border-top:1px solid #28435f;color:va
 </div></header>
 <main class="wrap">
 <section>
+<h2>0. 처음부터 따라 하기 — 최소 구성</h2>
+<div class="notice"><strong>최소 구성</strong> — ChatGPT Plus + 작업할 PC/서버 1대 + Remote Desktop Commander면 시작할 수 있습니다. 구형 노트북은 필수가 아니며, 평소 쓰는 데스크톱·남는 노트북·직접 관리하는 서버/VM도 사용할 수 있습니다.</div>
+<div class="grid">
+<div class="card accent-cyan"><h3>1) Node.js 준비</h3><p>제어할 PC/서버에 Node.js 18 이상을 설치합니다. 설치 후 터미널에서 버전을 확인합니다.</p><pre>node -v</pre><p><a href="https://nodejs.org/" rel="noopener noreferrer">Node.js 공식 다운로드</a></p></div>
+<div class="card accent-green"><h3>2) RDC remote agent 실행</h3><p>같은 터미널에서 아래 명령을 실행합니다.</p><pre>npx @wonderwhy-er/desktop-commander@latest remote</pre><p>브라우저의 인증 화면에서 기기를 승인하고 터미널에 <code>Device ready</code>가 표시되는지 확인합니다.</p></div>
+<div class="card accent-purple"><h3>3) ChatGPT에서 RDC 연결</h3><p>ChatGPT의 앱/커넥터에서 <strong>Remote Desktop Commander</strong>를 추가하고 같은 계정으로 연결합니다. 직접 Remote MCP를 연결할 경우 endpoint는 <code>https://mcp.desktopcommander.app/mcp</code>입니다.</p></div>
+<div class="card accent-green"><h3>4) 읽기 전용으로 첫 테스트</h3><p>처음에는 “연결된 컴퓨터에서 Node.js 버전을 확인해주세요.” 또는 “현재 디렉터리 파일 목록만 보여주세요.”처럼 상태를 바꾸지 않는 요청으로 연결을 확인합니다.</p></div>
+</div>
+<h3>Codex는 선택 사항입니다</h3>
+<p>코드 작성·디버깅까지 자동화하고 싶다면 연결된 PC에 Codex CLI를 추가합니다. OpenAI 공식 설치 명령은 다음과 같습니다.</p><pre>npm i -g @openai/codex</pre>
+<p>설치 후 Codex에 로그인하면 ChatGPT → RDC → Codex CLI 흐름으로 코드 작업을 넘길 수 있습니다. 단순 파일 확인이나 테스트는 Codex를 호출하지 않고 RDC만 사용하면 됩니다.</p>
+<h3>Git과 Google Drive도 선택 사항입니다</h3>
+<p>Git은 코드 변경 이력을 남길 때, Google Drive는 큰 데이터·로그·실행 결과를 여러 기기에서 공유할 때 추가하면 됩니다. 단순 원격 개발만 목적이라면 처음부터 둘 다 구성할 필요는 없습니다.</p>
+<div class="notice"><strong>보안</strong> — RDC는 연결된 기기에서 현재 사용자 권한으로 파일과 터미널을 다룹니다. 처음에는 읽기 전용 작업으로 확인하고, 신뢰하는 기기만 연결하며 MFA를 사용하는 편이 좋습니다. 외부 서버/VM은 최소 권한 계정으로 구성하는 것을 권장합니다.</div>
+</section>
+<section>
 <h2>왜 이런 구조를 만들었는가</h2>
 <p class="lead">Codex는 코드 작성과 디버깅에 강하지만 실제 개발 과정에는 코드 작성 외에도 수많은 반복 작업이 있습니다.</p>
 <div class="grid">
